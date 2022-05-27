@@ -70,8 +70,3 @@ def wikidata_api_requestor(prepared_list, output_partial_path=None):
 #entities_list = select_data_from_json("FILE PATH")
 #prepared_entities_list = wikidata_api_data_preparation(entities_list)
 #wikidata_api_requestor(prepared_entities_list, "FILE PATH")
-
-
-Ho formattato i soggetti correttamente e ho iniziato a testare le richieste con l'API e ho notato alcune cose:
-- wbgetclaims accetta solo id singoli e non la concatenazione di più id, quindi non credo sia utilizzabile, per ora sto utilizzando il getentities
-- Le prime richieste che ho mandato mi tornano json che per 50 entities variano da 2mb a 7mb, quindi se sono 2000000 di entità con 7mb dovremmo arrivare sui 200gb se non ho fatto conti errati
