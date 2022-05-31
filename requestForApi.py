@@ -16,8 +16,9 @@ for filename in os.listdir(directory):
                 'ids': line,
                 'uselang': 'en'
             }
-            r = requests.get(API_ENDPOINT, params = params)
-            with open('G:/results/'+filename+'_'+str(i)+".json", "w") as outfile:
-                json.dump(r.json(), outfile, indent = 4)
+            if not os.path.exists('G:/results/'+filename+'_'+str(i)+".json"):
+                r = requests.get(API_ENDPOINT, params = params)
+                with open('G:/results/'+filename+'_'+str(i)+".json", "w") as outfile:
+                    json.dump(r.json(), outfile, indent = 4)
             i+=1
             line = (file.readline()).rstrip("\n")
