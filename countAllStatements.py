@@ -1,10 +1,19 @@
 import os
 import json
-sum = 0
+sumDeprecated = 0
+sumNormal = 0
+sumPreferred = 0
+sumCount = 0
 for file in os.listdir("G:/rankings/"):
     if file != 'errors':
         with open('G:/rankings/'+file, 'r') as f:
             data = json.load(f)
-            sum += data['count']
-print(sum)
+            sumDeprecated += data['deprecated']
+            sumNormal += data['normal']
+            sumPreferred += data['preferred']
+            sumCount += data['count']
+print('sumDeprecated: '+str(sumDeprecated))
+print('sumNormal: '+str(sumNormal))
+print('sumPreferred: '+str(sumPreferred))
+print('sumCount: '+str(sumCount))
         

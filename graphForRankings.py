@@ -33,10 +33,11 @@ for filename in os.listdir(directory):
                     valuesCountArray.append(data['count'])
 
                     count+=1
-#ind = np.arange(len(fileNameArray))
-#plt.figure()
-#plt.bar(ind, valuesDeprecatedArray, tick_label=fileNameArray, width=0.7, color='red')
-#plt.xticks(fontsize=4, rotation =90)
+ind = np.arange(len(fileNameArray))
+#valuesDeprecatedArray = np.
+plt.figure()
+plt.bar(ind, valuesDeprecatedArray, tick_label=fileNameArray, width=0.7, color='red')
+plt.xticks(fontsize=4, rotation =90)
 
 #plt.figure()
 #plt.bar(ind, valuesNormalArray, tick_label=fileNameArray, width=0.7, color='orange')
@@ -69,11 +70,11 @@ for filename in os.listdir(directory):
 
 #PIE CHART
 
-sumDeprecated = np.sum(valuesDeprecatedArray)       
-sumNormal = np.sum(valuesNormalArray)       
-sumPreferred = np.sum(valuesPreferredArray)       
-plt.pie([sumDeprecated, sumNormal, sumPreferred], labels= ['Deprecated','Normal','Preferred'], colors=['red','orange','green'],startangle=90, shadow= True, radius=1.2, autopct='%1.1f%%')
-plt.legend()
+#sumDeprecated = np.sum(valuesDeprecatedArray)       
+#sumNormal = np.sum(valuesNormalArray)       
+#sumPreferred = np.sum(valuesPreferredArray)       
+#plt.pie([sumDeprecated, sumNormal, sumPreferred], labels= ['Deprecated','Normal','Preferred'], colors=['red','orange','green'],startangle=90, shadow= True, radius=1.2, autopct='%1.1f%%')
+#plt.legend()
     
 #plt.figure()
 #plt.bar(ind, getDeprecatedArray(values), tick_label ='deprecated',width= 0.7, color = 'red')
