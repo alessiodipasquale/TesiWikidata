@@ -3,7 +3,8 @@ import os
 import json
 import sys
 # assign directory
-directory = 'G:/dumpSubject/'
+#directory = 'G:/dumpSubject/'
+directory = 'C:/Users/aless/Desktop/Tesi/first7Dataset1'
 count = 0
 for filename in os.listdir(directory):
     f = os.path.join(directory, filename)
@@ -11,4 +12,5 @@ for filename in os.listdir(directory):
         data = json.load(jsonFile)
         for elem in data:
            count +=1
-print(count)
+    print(filename+':'+ str(count))
+    count = 0

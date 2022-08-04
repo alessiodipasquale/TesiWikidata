@@ -30,21 +30,21 @@ for elem in data:
     print(entity)
     if not os.path.exists('G:/rankings/'+entity+'.json'):
         for file in os.listdir("G:/results/"):
-for file in os.listdir("G:/results/"):
-    if file.startswith(entity+'.json'):
-    try:
-        with open('G:/results/'+file,'r') as f:
-            data = json.load(f)               
-            entities = data['entities']
-            for key in entities:
-                el = entities[key]
-                for claimsId in el['claims']:
-                    statement = el['claims'][claimsId]
-                    for elem in statement:
-                        res.append(elem['qualifiers']['P5102'])
-                          
-    except KeyError:
-        errorCount +=1
+            for file in os.listdir("G:/results/"):
+                if file.startswith(entity+'.json'):
+                    try:
+                        with open('G:/results/'+file,'r') as f:
+                            data = json.load(f)               
+                            entities = data['entities']
+                            for key in entities:
+                                el = entities[key]
+                                for claimsId in el['claims']:
+                                    statement = el['claims'][claimsId]
+                                    for elem in statement:
+                                        res.append(elem['qualifiers']['P5102'])
+                                    
+                    except KeyError:
+                        errorCount +=1
 with open('G:/natureOfStatements/'+entity+'.txt', 'w') as file:
     file.write(str(res))
         
