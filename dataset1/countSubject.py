@@ -4,7 +4,7 @@ import json
 import sys
 # assign directory
 #directory = 'G:/dumpSubject/'
-directory = 'C:/Users/aless/Desktop/Tesi/first7Dataset1'
+directory = 'C:/Users/aless/Desktop/Tesi/first7Dataset1/others'
 count = 0
 for filename in os.listdir(directory):
     f = os.path.join(directory, filename)

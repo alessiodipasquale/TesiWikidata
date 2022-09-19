@@ -36,12 +36,12 @@ claimsTotalNumber = 0
     #entity = str(typeString.replace('http://www.wikidata.org/entity/',''))
     #print(entity) 
     #if not os.path.exists('G:/asserted3/'+entity+'.json'):
-for file in os.listdir("G:/fiumi/"):
+for file in os.listdir("G:/Dataset3/results/results"):
     print(file)
     claimsTotalNumber = 0
     #if file.startswith(entity+'.json'):
     try:     
-        with open('G:/fiumi/'+file,'r') as f:
+        with open('G:/Dataset3/results/results/'+file,'r') as f:
         #with open('C:/Users/aless/Desktop/Tesi/asserted/input/input.json','r') as f:
             data = json.load(f)       
             entities = data['entities']
@@ -78,5 +78,5 @@ outString = {
         'count':claimsTotalNumber
 }
 json_string = json.dumps(outString)
-with open('G:/assertedFiumi/Q4022.json','w') as output:
+with open('G:/Dataset3/asserted.json','w') as output:
     output.write(json_string)
