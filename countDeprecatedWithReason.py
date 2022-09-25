@@ -13,9 +13,11 @@ counter=0;
 
 elements = {}
 
-for file in os.listdir("G:/DATASETCOMPLETO"):
+for file in os.listdir("G:/Dataset3/results/results"):
+    preferredRankCount +=1
+    print(preferredRankCount)
     try:
-        with open('G:/DATASETCOMPLETO/'+file,'r') as f:
+        with open('G:/Dataset3/results/results/'+file,'r') as f:
             data = json.load(f)               
             entities = data['entities']
             for key in entities:
@@ -48,5 +50,5 @@ print('totale:'+ str(counter))
 data = sorted(elements.items(), key = lambda item: item[1], reverse=True)
 
 json_string = json.dumps(data)
-with open('C:/Users/aless/Desktop/Tesi/dataset1/reasonOfDeprecation1.json','w') as output:
+with open('C:/Users/aless/Desktop/Tesi/dataset3/reasonOfDeprecation3.json','w') as output:
     output.write(json_string)
