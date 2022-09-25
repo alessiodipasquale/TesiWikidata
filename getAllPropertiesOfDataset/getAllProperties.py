@@ -1,12 +1,16 @@
-from html import entities
 import json
-import os
+from operator import contains
+import requests
 from json.decoder import JSONDecodeError
-
-counter = 0
+import time
+import os
+properties = {}
+counter = 0;
 for file in os.listdir("G:/MusicalBand/data"):
     try:     
         with open('G:/MusicalBand/data/'+file,'r') as f:
+            counter +=1;
+            print(counter)
             data = json.load(f)       
             entities = data['entities']
             for key in entities: #entità Q
@@ -15,8 +19,9 @@ for file in os.listdir("G:/MusicalBand/data"):
                     statements = el['claims'][claimsId]
                     for elem in statements:
                         mainsnak = elem['mainsnak']
-                        if(mainsnak['snaktype']=='novalue'):  
-                            counter +=1
+                        if(claimsId not in properties.keys()): 
+                            toChange = {claimsId: 0} 
+                            properties.update(toChange)
     except KeyError:
         print('key error')
         #with open('G:/asserted3/errors/rankingsError.txt','a') as errorFile:
@@ -24,5 +29,6 @@ for file in os.listdir("G:/MusicalBand/data"):
     except JSONDecodeError as err:
         print('json error')
         
-print(counter) 
-    
+print(properties) 
+with open('./allPropertiesMusical.json','w') as outfile:
+    outfile.write(json.dumps(properties, indent = 4))
